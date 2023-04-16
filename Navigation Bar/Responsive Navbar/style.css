@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* html {
+    font-size: 16px;
+} */
+
+/* GENERAL SETTINGS */
+
+body {
+    height: 100vh;
+    background-color: #000;
+    background-image: url('https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: orange;
+}
+
+/* HEADER STYLE */
+
+header {
+    position: relative;
+    padding: 0 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navbar .links {
+    /* when you just style display: flex to the parent element, the children will automatically placed horizontally, next to each other (based on the default flexbox direction */
+    display: flex;
+    gap: 5rem;  /* gap property sets the gaps between rows and columns. Used for flexbox or grid */
+}
+
+.navbar .toggle-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;  /* by default, hide the toggle button */
+}
+
+.action-btn {
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale;
+}
+
+.action-btn:hover {
+    scale: 1.05;
+    color: #fff;
+}
+
+.action-btn:active {
+    scale: 0.95;
+}
+
+/* DROP-DOWN MENU */
+.dropdown-menu {
+    display: none;  /* hide it when it's in the regular screen size */
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    margin-top: 10px;
+    width: 300px;
+    height: 0;  /* to create the drop-down animation */
+    background-color: rgba(255, 255, 255, 0.2);
+    /* backdrop-filter: blur(10px); */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* toggle class, when click the hamburger symbol, the drop-down list will show up */
+.dropdown-menu.open {
+    height: 220px;
+}
+
+.dropdown-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-menu .action-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HERO */
+section#hero {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 992px) {
+    header {
+        backdrop-filter: unset;
+        background-color: unset;
+    }
+
+    .navbar .links, 
+    .navbar .action-btn {
+        display: none;
+    }
+
+    .navbar .toggle-btn {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: block;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* responsive width for the drop-down menu */
+@media(max-width: 576px) {
+    .dropdown-menu {
+        left: 2rem;
+        width: unset;  /* The unset CSS keyword resets a property to its inherited value if the property naturally inherits from its parent, and to its initial value if not. */
+    }
+}

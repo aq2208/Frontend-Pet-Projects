@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+root {
+    --color-theme: #359381;
+    --color-white: #ffffff;
+    --color-bottom: #00332B; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--color-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    /* make the header float above other contents of the web. Makes the header will not affect the layout */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding: 30px 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* place the items inside at the start of the line */
+
+    z-index: 1000;
+}
+
+header .logo {
+    text-decoration: none;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #359381;
+    pointer-events: none;
+    margin-right: 310px;
+
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #359381;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 610;
+}
+
+header ul li a:hover, 
+header ul li a.active {
+    background-color: #359381;
+    color: #ffffff;
+}
+
+.parallax {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#text {
+    position: absolute;
+    font-size: 5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+.parallax img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sec {
+    position: relative;
+    padding: 100px;
+    background: #003329;
+}
+
+.sec h2 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.sec p {
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+

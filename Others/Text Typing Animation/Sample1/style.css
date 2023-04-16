@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: 1.6rem;
+    background-color: #000;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.wrapper .first-text {
+    font-size: 6rem;
+    color: #fff;
+}
+
+/* quy định về chiều cao của second-texts để chỉ hiển thị chữ lọt vào cùng hàng với I'm a được thôi, còn những chữ lọt ra ngoài sẽ bị che mất (vì các chữ đc xếp theo hàng dọc */
+.wrapper .second-texts {
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+}
+
+.second-texts li {
+    position: relative;
+    top: 0;
+    font-size: 6rem;
+    color: #0ef;
+    list-style: none;
+    padding: 0 20px;
+    text-shadow: 0 0 10px #0ef;
+
+    animation: slide 12s steps(4) infinite, colorful 6s infinite;
+}
+
+.second-texts li span {
+    position: relative;
+}
+
+/* Tạo con trỏ chuột và vùng chữ bị che lại (vùng đen) và đặt nó ở đầu mỗi từ (vị trí xuất phát) */
+/* vùng đen này sẽ chạy từ đầu từ đến cuối từ (width của nó sẽ bằng với từ đó nên nó sẽ che hết được từ đó) và nó sẽ tạo hiệu ứng che các chữ cái ở phía sau từ đó đi, và khi con trỏ chuột chạy đến đâu thì nó sẽ show ra đến đấy */
+.second-texts li span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 40rem;
+    height: 9rem;
+    border-left: 2px solid #0ef;
+    background-color: #000;
+
+    animation: typing 1.5s steps(10) infinite alternate;
+    /* steps() is a timing function that allows us to break an animation or transition into segments, rather than one continuous transition from one state to another. */
+    /* chia animation thành 10 segment chạy từ đầu từ đến cuối từ */
+}
+
+/* animation con trỏ chuột chạy qua từng chữ trong 1 từ */
+/* nó sẽ đẩy vùng che dần dần ra sau từ đó và show từ đó ra theo lần lượt từng từ */
+@keyframes typing {
+    100% {
+        left: 100%;
+        /* animation chỉ có thể chạy đến cuối của chữ cái gần cuối đc thôi, ko đến được cuối của từ */
+        /* vì vậy nên ta phải thêm margin như ở dưới để nó có thể chạy về cuối của từ */
+        margin: 0 -35px 0 35px;  
+    }
+}
+
+/* các từ thay thế vị trí của nhau */
+/* các từ được sắp xếp theo hàng dọc, từ trên xuống dưới. Và animation này sẽ làm cho các từ lần lượt di chuyển lên trên, và lần lượt di chuyển vào cùng hàng với chữ I'm a, sau đó lại đi lên trên */
+@keyframes slide {
+    100% {
+        top: -360px;
+    }
+}
+
+/* chữ chuyển màu */
+@keyframes colorful {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
