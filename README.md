@@ -4,5 +4,4 @@
 
 👉 Using HTML, CSS and Vanilla JavaScript, no frameworks at all | Applying CSS advanced, modern concepts.
 
-📌 Github pages: 
- 
+📌 Github pages: https://aq2208.github.io/Frontend-Pet-Projects/
